@@ -31,7 +31,7 @@
 </ItemGroup>
 
 <ItemGroup>
-  <ProjectReference Include="..\GrandParade\GrandParade.Registration\GrandParade.Registration.csproj" />
+  <ProjectReference Include="..\GrandParade.Registration\GrandParade.Registration.csproj" />
 </ItemGroup>
 
 </Project>
