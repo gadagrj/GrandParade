@@ -1,0 +1,34 @@
+version: '3.4'
+
+services:
+  grandparade.registration:
+    image: ${DOCKER_REGISTRY-}grandparaderegistration
+    build:
+      context: .
+      dockerfile: GrandParade.Registration/Dockerfile
+    depends_on:
+     - mongo
+  
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    # network_mode: host
+    networks:
+      - GPRegistration
+    volumes:
+      - mongo:/data/db
+
+networks:
+  GPRegistration:
+    name: GPRegistration-network
+
+volumes:
+  # consul:
+  #   driver: local
+  # grafana:
+  #   driver: local
+  mongo:
+    driver: local
